@@ -3,10 +3,6 @@ public:
     int search(vector<int>& nums, int target) {
         
         int n = nums.size();
-
-        if (n == 1 && nums[0] == target) return 0;
-        if (n == 0) return -1;
-
         int left = 0;
         int right = n - 1;
         
