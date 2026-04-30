@@ -5,6 +5,7 @@ public:
         int n = arr.size();
         int left = 0;
         int right = n - 1;
+
         while (left <= right) {
 
             int mid = left + (right - left) / 2;
@@ -18,7 +19,6 @@ public:
                 right = mid - 1;
             }
         }
-        if (left == 0) return k;
-        else return left + k;
+        return left + k;
     }
 };
