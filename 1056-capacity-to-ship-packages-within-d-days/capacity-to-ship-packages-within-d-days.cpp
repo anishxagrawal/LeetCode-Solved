@@ -1,27 +1,22 @@
 class Solution {
 public:
-    bool canShip(vector<int>& weights, int daily_capacity, int deadline) {
+    bool canShip(vector<int>& weights, int capacity, int days) {
 
         int n = weights.size();
-        int total_weight = 0;
-        int days = 1;
+        int days_used = 1;
+        int current_load = 0;
 
-        int i = 0;
-        long long temp = 0;
-
-        while (i < n) {
+        for (int w : weights){
             
-            temp = temp + weights[i];
+            if (current_load + w <= capacity) 
+                current_load += w;
 
-            if (temp > daily_capacity){
-                temp = 0;
-                days++;
-                i--;
+            else {
+                days_used++;
+                current_load = w;
             }
-            i++;
         }
-        if (days <= deadline) return true;
-        else return false;
+        return days_used <= days;
     }
     int shipWithinDays(vector<int>& weights, int days) {
         
