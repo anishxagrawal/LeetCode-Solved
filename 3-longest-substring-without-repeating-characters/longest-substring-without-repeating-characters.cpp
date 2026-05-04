@@ -28,11 +28,12 @@ public:
 
         res = s.substr(left, right - left + 1);
 
-            if (!uniqueChar(res)) {
+            while (!uniqueChar(res)) {
                 left++;
+                res = s.substr(left, right - left + 1);
             }
 
-            ans = right - left + 1;
+            ans = max(ans, right - left + 1);
             right++;
         }
         return ans;
